@@ -33,4 +33,24 @@ module.exports = {
         : res.status(200).send(todo))
       .catch(err => res.status(400).send(err));
   },
+  update({ body, params }) {
+    return Todo
+      .findOne({
+        where: { id:params.todoId },
+        include: [{
+          model: TodoItem,
+          as: 'todoItems',
+        }],
+      })
+      .then(todo => {
+        if(todo) {
+          return todo
+            .update({
+              title: body.title || todo.title
+            });
+        }
+        res.status(404).send({ message:`Todo ${params.todoId} not found` });
+      })
+      .catch(err => res.status(400).send(err));
+  },
 };

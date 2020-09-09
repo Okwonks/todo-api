@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('TodoItems', {
+    await queryInterface.createTable('TodoItem', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -27,7 +27,7 @@ module.exports = {
       todoId: {
         onDelete: 'CASCADE',
         references: {
-          model: 'Todos',
+          model: 'Todo',
           key: 'id',
           as: 'todoId',
         },
@@ -36,6 +36,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('TodoItems');
+    await queryInterface.dropTable('TodoItem');
   }
 };
