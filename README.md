@@ -1,6 +1,6 @@
 # Todo API
 
-A nodejs CRUD API
+A nodejs CRUD API with Sequelize ORM
 
 ## Dev
 
