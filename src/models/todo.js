@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
         as:'todoItems'
       });
     }
-  };
+  }
   Todo.init({
     title: { type:DataTypes.STRING, allowNull:false },
   }, {

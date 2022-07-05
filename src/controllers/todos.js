@@ -33,7 +33,7 @@ module.exports = {
         : res.status(200).send(todo))
       .catch(err => res.status(400).send(err));
   },
-  update({ body, params }) {
+  update({ body, params }, res) {
     return Todo
       .findOne({
         where: { id:params.todoId },

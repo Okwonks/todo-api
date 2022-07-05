@@ -2,9 +2,11 @@ const todosController = require('../controllers').todos;
 const todoItemsController = require('../controllers').todoItems;
 
 module.exports = (app) => {
+  const envVar = process.env.ENV_VAR;
   app.get('/api', (req, res) => res.status(200).send({
     version: 'v1.0.0',
     message: 'Todos API',
+    envVar,
   }));
 
   app.post('/api/todos/', todosController.create);
